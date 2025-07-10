@@ -1,0 +1,907 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/30/2025 2:18:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SAGARA-LAPTOP"
+  DTS:CreatorName="SAGARA-LAPTOP\sagar"
+  DTS:DTSID="{2AD91223-AB84-4190-AB1B-85E5F9A358B1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package3"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{AC4535F6-43D0-44A0-B51F-FA58DDEB75A3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Source_Tardis]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{36B9D1B9-ECFD-4BC0-8370-048E7B6FECDF}"
+      DTS:ObjectName="Source_Tardis">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=SAGARA-LAPTOP\SQLEXPRESS;Initial Catalog=TARDIS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{36B9D1B9-ECFD-4BC0-8370-048E7B6FECDF}SAGARA-LAPTOP\SQLEXPRESS.TARDIS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="Dest_Tardis_stage"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{BAF36449-0DA8-409B-A8B4-65635E780A03}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+    <DTS:LogProvider
+      DTS:CreationName="Microsoft.LogProviderEventLog"
+      DTS:Description="Writes log entries for events to the Event Log"
+      DTS:DTSID="{9DF7D021-5F87-41EC-9815-94FB370CDA52}"
+      DTS:ObjectName="SSIS log provider for Windows Event Log">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D305647B-EEF2-4043-B733-6E7A13259493}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Row_cnt">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">2,7,OnError,12,OnTaskFailed</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{BAF36449-0DA8-409B-A8B4-65635E780A03}" />
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{9DF7D021-5F87-41EC-9815-94FB370CDA52}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task_Load the data to Stage_TransactionType table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{74B19D7C-EE5C-4616-A866-AB7BAD5C86AB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task_Load the data to Stage_TransactionType table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage_TransactionType]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{150D4094-9D1C-498A-8FAB-B21551C429D5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dest_Tardis_stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionTypeID]"
+                      cachedDataType="i4"
+                      cachedName="TransactionTypeID"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeID]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TransactionTypeCode"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionTypeDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TransactionTypeDescription"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeDescription]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateExpired]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateExpired"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateExpired]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateUpdated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateUpdated"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrentYN]"
+                      cachedDataType="bool"
+                      cachedName="CurrentYN"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceSystemID]"
+                      cachedDataType="i4"
+                      cachedName="SourceSystemID"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                      cachedDataType="i4"
+                      cachedName="BatchID"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeID]"
+                      dataType="i4"
+                      name="TransactionTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TransactionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TransactionTypeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      name="DateExpired" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Policy]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[TransactionType]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Source_Tardis]"
+                  connectionManagerRefId="Package.ConnectionManagers[Source_Tardis]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateExpired]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]"
+                      name="DateExpired"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      name="DateUpdated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      name="CurrentYN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      name="SourceSystemID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      name="BatchID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeID]"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeID]"
+                      name="TransactionTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeCode]"
+                      length="20"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeCode]"
+                      name="TransactionTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeDescription]"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeDescription]"
+                      name="TransactionTypeDescription"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      name="DateExpired" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeID]"
+                      dataType="i4"
+                      name="TransactionTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TransactionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TransactionTypeDescription" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeID]"
+                      name="TransactionTypeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeCode]"
+                      name="TransactionTypeCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeDescription]"
+                      name="TransactionTypeDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateExpired]"
+                      name="DateExpired" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      name="DateUpdated" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      name="CurrentYN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      name="SourceSystemID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      name="BatchID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Row_cnt</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load the data to Stage_TransactionType table\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Data Flow Task_Load the data to Stage_TransactionType table\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task_Load the data to Stage_TransactionType table.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task_Load the data to Stage_TransactionType table\Row Count.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task_Load the data to Stage_TransactionType table.Paths[Row Count Output 1]"
+              endId="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task_Load the data to Stage_TransactionType table\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task- delete the data from  Stage_TransactionType table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C8BF48C0-46AB-4125-ACCE-074264FCCC52}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task- delete the data from  Stage_TransactionType table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{150D4094-9D1C-498A-8FAB-B21551C429D5}"
+          SQLTask:SqlStatementSource="Truncate table Stage_TransactionType" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Logging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5978D8CC-E676-42C9-8323-F42626E78D52}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Logging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{150D4094-9D1C-498A-8FAB-B21551C429D5}"
+          SQLTask:SqlStatementSource="insert into SSIS_Logs values (?,GETDATE(),?,'sucess.package executed succesfully')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::Row_cnt"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="131"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7E047F1A-A7DA-4583-9BCC-35EDAC51CB9B}"
+      DTS:From="Package\Execute SQL Task- delete the data from  Stage_TransactionType table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task_Load the data to Stage_TransactionType table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A1B74665-9E10-4B69-ABBF-105B43CFFBE2}"
+      DTS:From="Package\Data Flow Task_Load the data to Stage_TransactionType table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Logging" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="369.6,41.6"
+          Id="Package\Data Flow Task_Load the data to Stage_TransactionType table"
+          TopLeft="264.166652233237,272.133331440952" />
+        <NodeLayout
+          Size="404.8,41.6"
+          Id="Package\Execute SQL Task- delete the data from  Stage_TransactionType table"
+          TopLeft="242.499986750385,60.6666662447983" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="446.933319491811,102.266666244798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,169.866665196154"
+              Start="0,0"
+              End="0,162.366665196154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,162.366665196154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Logging"
+          TopLeft="357.499980467062,422.933330392308" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="448.966652233237,313.733331440952">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.8666717661748,109.199998951356"
+              Start="0,0"
+              End="-33.8666717661748,101.699998951356">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5999994756779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.5999994756779"
+                    Point2="0,54.5999994756779"
+                    Point3="-4,54.5999994756779" />
+                  <mssgle:LineSegment
+                    End="-29.8666717661748,54.5999994756779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.8666717661748,54.5999994756779"
+                    Point2="-33.8666717661748,54.5999994756779"
+                    Point3="-33.8666717661748,58.5999994756779" />
+                  <mssgle:LineSegment
+                    End="-33.8666717661748,101.699998951356" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task_Load the data to Stage_TransactionType table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source"
+          TopLeft="234.999987160167,126.533332453436" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination"
+          TopLeft="230.833320721157,340.59999763151" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task_Load the data to Stage_TransactionType table\Row Count"
+          TopLeft="389.99997869134,220.133331802554" />
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load the data to Stage_TransactionType table.Paths[OLE DB Source Output]"
+          TopLeft="310.999987160167,168.133332453436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.799991531173,51.9999993491176"
+              Start="0,0"
+              End="143.799991531173,44.4999993491176">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9999996745588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9999996745588"
+                    Point2="0,25.9999996745588"
+                    Point3="4,25.9999996745588" />
+                  <mssgle:LineSegment
+                    End="139.799991531173,25.9999996745588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.799991531173,25.9999996745588"
+                    Point2="143.799991531173,25.9999996745588"
+                    Point3="143.799991531173,29.9999996745588" />
+                  <mssgle:LineSegment
+                    End="143.799991531173,44.4999993491176" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load the data to Stage_TransactionType table.Paths[Row Count Output 1]"
+          TopLeft="454.79997869134,261.733331802554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-138.366657970183,78.8666658289559"
+              Start="0,0"
+              End="-138.366657970183,71.3666658289559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.4333329144779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.4333329144779"
+                    Point2="0,39.4333329144779"
+                    Point3="-4,39.4333329144779" />
+                  <mssgle:LineSegment
+                    End="-134.366657970183,39.4333329144779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-134.366657970183,39.4333329144779"
+                    Point2="-138.366657970183,39.4333329144779"
+                    Point3="-138.366657970183,43.4333329144779" />
+                  <mssgle:LineSegment
+                    End="-138.366657970183,71.3666658289559" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task_Load the data to Stage_TransactionType table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

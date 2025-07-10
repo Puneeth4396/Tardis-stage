@@ -1,0 +1,880 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/30/2025 3:03:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SAGARA-LAPTOP"
+  DTS:CreatorName="SAGARA-LAPTOP\sagar"
+  DTS:DTSID="{8CC9E4E3-0672-4960-8612-368174C492B2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package4"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{77A57018-072C-4BDE-A84D-3C7931FE60DB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[source_Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0C092875-C20E-4565-94E1-C91C11029337}"
+      DTS:ObjectName="source_Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Puneeth\MSBI project\Dwh\COVERAGE,DEDUCTION,PREMIUM,LIMIT.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="Dest_Tardis_stage"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{D4AC219E-AE24-4B2B-B300-1262C3B582B5}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+    <DTS:LogProvider
+      DTS:CreationName="Microsoft.LogProviderEventLog"
+      DTS:Description="Writes log entries for events to the Event Log"
+      DTS:DTSID="{6D2A11E5-3A39-4857-8BA9-55821B19835D}"
+      DTS:ObjectName="SSIS log provider for Windows Event Log">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4AD4B58-3C5A-4524-BA60-0F3469F620E4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Row_cnt">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">2,7,OnError,12,OnTaskFailed</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{6D2A11E5-3A39-4857-8BA9-55821B19835D}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task-load the data to Stage_Limit  table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CC39F993-A025-42B3-8B73-659A5BD72167}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task-load the data to Stage_Limit  table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Limit$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[source_Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[source_Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      length="255"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      name="CoverageKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[SourceIdentifier]"
+                      length="255"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]"
+                      name="SourceIdentifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[TransactionCode]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]"
+                      name="TransactionCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[CurrCode]"
+                      length="255"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]"
+                      name="CurrCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[FXRate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[FXRate]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[FXRate]"
+                      name="FXRate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[LimitAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[LimitAmount]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[LimitAmount]"
+                      name="LimitAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[SettelmentCurrency]"
+                      length="255"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]"
+                      name="SettelmentCurrency"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[TransactionCode]"
+                      dataType="r8"
+                      name="TransactionCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      dataType="date"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[FXRate]"
+                      dataType="r8"
+                      name="FXRate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[LimitAmount]"
+                      dataType="r8"
+                      name="LimitAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].ExternalColumns[SettelmentCurrency]"
+                      dataType="wstr"
+                      length="255"
+                      name="SettelmentCurrency" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      name="CoverageKey" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[SourceIdentifier]"
+                      name="SourceIdentifier" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[TransactionCode]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[TransactionCode]"
+                      name="TransactionCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[CurrCode]"
+                      name="CurrCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[FXRate]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[FXRate]"
+                      name="FXRate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[LimitAmount]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[LimitAmount]"
+                      name="LimitAmount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[SettelmentCurrency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[SettelmentCurrency]"
+                      name="SettelmentCurrency" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage_limit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{150D4094-9D1C-498A-8FAB-B21551C429D5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dest_Tardis_stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CoverageKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CoverageKey"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceIdentifier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SourceIdentifier"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceIdentifier]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionCode]"
+                      cachedDataType="r8"
+                      cachedName="TransactionCode"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCode]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CurrCode"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FXRate]"
+                      cachedDataType="r8"
+                      cachedName="FXRate"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FXRate]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[FXRate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LimitAmount]"
+                      cachedDataType="r8"
+                      cachedName="LimitAmount"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LimitAmount]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[LimitAmount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SettelmentCurrency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SettelmentCurrency"
+                      externalMetadataColumnId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SettelmentCurrency]"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCode]"
+                      dataType="r8"
+                      name="TransactionCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FXRate]"
+                      dataType="r8"
+                      name="FXRate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LimitAmount]"
+                      dataType="r8"
+                      name="LimitAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SettelmentCurrency]"
+                      dataType="wstr"
+                      length="255"
+                      name="SettelmentCurrency" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task-load the data to Stage_Limit  table\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Row_cnt</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task-load the data to Stage_Limit  table\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task-load the data to Stage_Limit  table\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Data Flow Task-load the data to Stage_Limit  table\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task-load the data to Stage_Limit  table.Paths[Excel Source Output]"
+              endId="Package\Data Flow Task-load the data to Stage_Limit  table\Row Count.Inputs[Row Count Input 1]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task-load the data to Stage_Limit  table.Paths[Row Count Output 1]"
+              endId="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task-load the data to Stage_Limit  table\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task-delete from Stage_Limit table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6647D250-1D6C-4453-8727-836D7544BEA4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task-delete from Stage_Limit table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{150D4094-9D1C-498A-8FAB-B21551C429D5}"
+          SQLTask:SqlStatementSource="Truncate table Stage_limit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\logging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ffc1c865-351f-4b6f-9171-a2ee44716d86}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="logging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{150D4094-9D1C-498A-8FAB-B21551C429D5}"
+          SQLTask:SqlStatementSource="insert into SSIS_Logs values (?,GETDATE(),?,'sucess.package executed succesfully')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::Row_cnt"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="131"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EDB003B1-C3F9-4FB4-824C-B3E069A5E98A}"
+      DTS:From="Package\Execute SQL Task-delete from Stage_Limit table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task-load the data to Stage_Limit  table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A1EA2209-BBD9-4086-8257-F7AC3E957614}"
+      DTS:From="Package\Data Flow Task-load the data to Stage_Limit  table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\logging" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="311.2,41.6"
+          Id="Package\Data Flow Task-load the data to Stage_Limit  table"
+          TopLeft="202.499988935888,204.533331911034" />
+        <NodeLayout
+          Size="303.2,41.6"
+          Id="Package\Execute SQL Task-delete from Stage_Limit table"
+          TopLeft="243.333320038187,28.5999998011192" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\logging"
+          TopLeft="283.333317852683,366.599997450709" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="394.933320038187,70.1999998011192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36.8333311022986,134.333332109915"
+              Start="0,0"
+              End="-36.8333311022986,126.833332109915">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.1666660549574" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63.1666660549574"
+                    Point2="0,67.1666660549574"
+                    Point3="-4,67.1666660549574" />
+                  <mssgle:LineSegment
+                    End="-32.8333311022986,67.1666660549574" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32.8333311022986,67.1666660549574"
+                    Point2="-36.8333311022986,67.1666660549574"
+                    Point3="-36.8333311022986,71.1666660549574" />
+                  <mssgle:LineSegment
+                    End="-36.8333311022986,126.833332109915" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="358.099988935888,246.133331911034">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.7666710832048,120.466665539675"
+              Start="0,0"
+              End="-18.7666710832048,112.966665539675">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.2333327698377" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.2333327698377"
+                    Point2="0,60.2333327698377"
+                    Point3="-4,60.2333327698377" />
+                  <mssgle:LineSegment
+                    End="-14.7666710832048,60.2333327698377" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.7666710832048,60.2333327698377"
+                    Point2="-18.7666710832048,60.2333327698377"
+                    Point3="-18.7666710832048,64.2333327698377" />
+                  <mssgle:LineSegment
+                    End="-18.7666710832048,112.966665539675" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task-load the data to Stage_Limit  table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination"
+          TopLeft="212.499988389512,430.733330338067" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source"
+          TopLeft="218.333321404126,201.933331929114" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task-load the data to Stage_Limit  table\Row Count"
+          TopLeft="276.666651550267,314.599997812311" />
+        <EdgeLayout
+          Id="Package\Data Flow Task-load the data to Stage_Limit  table.Paths[Excel Source Output]"
+          TopLeft="288.333321404126,243.533331929114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.1333301461412,71.0666658831969"
+              Start="0,0"
+              End="53.1333301461412,63.5666658831969">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5333329415984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5333329415984"
+                    Point2="0,35.5333329415984"
+                    Point3="4,35.5333329415984" />
+                  <mssgle:LineSegment
+                    End="49.1333301461412,35.5333329415984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.1333301461412,35.5333329415984"
+                    Point2="53.1333301461412,35.5333329415984"
+                    Point3="53.1333301461412,39.5333329415984" />
+                  <mssgle:LineSegment
+                    End="53.1333301461412,63.5666658831969" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task-load the data to Stage_Limit  table.Paths[Row Count Output 1]"
+          TopLeft="341.466651550267,356.199997812311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.3666631607551,74.5333325257565"
+              Start="0,0"
+              End="-43.3666631607551,67.0333325257565">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.2666662628782" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.2666662628782"
+                    Point2="0,37.2666662628782"
+                    Point3="-4,37.2666662628782" />
+                  <mssgle:LineSegment
+                    End="-39.3666631607551,37.2666662628782" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39.3666631607551,37.2666662628782"
+                    Point2="-43.3666631607551,37.2666662628782"
+                    Point3="-43.3666631607551,41.2666662628782" />
+                  <mssgle:LineSegment
+                    End="-43.3666631607551,67.0333325257565" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task-load the data to Stage_Limit  table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task-load the data to Stage_Limit  table\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
